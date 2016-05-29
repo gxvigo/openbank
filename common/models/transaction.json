@@ -1,0 +1,66 @@
+{
+  "name": "transaction",
+  "plural": "transactions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "description": "Unique transaction identifier"
+    },
+    "this_account_id": {
+      "type": "string",
+      "required": true
+    },
+    "other_account_id": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "description": "Transaction type (e.g. cash)"
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "posted": {
+      "type": "date",
+      "required": true,
+      "description": "Date of transaction initiation"
+    },
+    "completed": {
+      "type": "date",
+      "required": true,
+      "description": "Date of transaction completion"
+    },
+    "value_currency": {
+      "type": "string",
+      "required": true
+    },
+    "value_amount": {
+      "type": "number",
+      "required": true
+    },
+    "where_lat": {
+      "type": "string",
+      "required": true,
+      "description": "Latitude where the transaction happened"
+    },
+    "where_lon": {
+      "type": "string",
+      "required": true,
+      "description": "Longitude where the transaction happened"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

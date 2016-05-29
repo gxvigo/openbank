@@ -20,5 +20,9 @@
   "bank": {
     "dataSource": "mongodb-connection",
     "public": true
+  },
+  "account": {
+    "dataSource": "db",
+    "public": true
   }
 }

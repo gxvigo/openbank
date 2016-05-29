@@ -1,0 +1,45 @@
+{
+  "name": "account",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "IBAN": {
+      "type": "string",
+      "required": true,
+      "description": "IBAN"
+    },
+    "balance": {
+      "type": "number",
+      "required": true,
+      "description": "Account balance"
+    },
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "description": "Account identifier"
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Account label"
+    },
+    "owner": {
+      "type": "string",
+      "required": true,
+      "description": "owner of the account"
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "description": "Account type (e.g. savings)"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

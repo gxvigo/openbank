@@ -273,6 +273,280 @@ paths:
           schema:
             type: file
       deprecated: false
+  /accounts:
+    post:
+      tags:
+        - account
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: account.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/account'
+      deprecated: false
+    put:
+      tags:
+        - account
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source.
+      operationId: account.upsert
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            $ref: '#/definitions/account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/account'
+      deprecated: false
+    get:
+      tags:
+        - account
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: account.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/account'
+      deprecated: false
+  '/accounts/{id}/exists':
+    get:
+      tags:
+        - account
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'account.exists__get_accounts_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/accounts/{id}':
+    head:
+      tags:
+        - account
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'account.exists__head_accounts_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - account
+      summary: Find a model instance by id from the data source.
+      operationId: account.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: Filter defining fields and include
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/account'
+      deprecated: false
+    delete:
+      tags:
+        - account
+      summary: Delete a model instance by id from the data source.
+      operationId: account.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - account
+      summary: >-
+        Update attributes for a model instance and persist it into the data
+        source.
+      operationId: account.prototype.updateAttributes
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/account'
+        - name: id
+          in: path
+          description: PersistedModel id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/account'
+      deprecated: false
+  /accounts/findOne:
+    get:
+      tags:
+        - account
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: account.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/account'
+      deprecated: false
+  /accounts/update:
+    post:
+      tags:
+        - account
+      summary: Update instances of the model matched by where from the data source.
+      operationId: account.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            $ref: '#/definitions/account'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: The number of instances updated
+            type: object
+      deprecated: false
+  /accounts/count:
+    get:
+      tags:
+        - account
+      summary: Count instances of the model matched by where from the data source.
+      operationId: account.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+  /accounts/change-stream:
+    post:
+      tags:
+        - account
+      summary: Create a change stream.
+      operationId: account.createChangeStream__post_accounts_change-stream
+      parameters:
+        - name: options
+          in: formData
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
+    get:
+      tags:
+        - account
+      summary: Create a change stream.
+      operationId: account.createChangeStream__get_accounts_change-stream
+      parameters:
+        - name: options
+          in: query
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: file
+      deprecated: false
 definitions:
   bank:
     properties:
@@ -300,6 +574,35 @@ definitions:
     additionalProperties: false
   x-any:
     properties: {}
+  account:
+    properties:
+      IBAN:
+        description: IBAN
+        type: string
+      balance:
+        description: Account balance
+        type: number
+        format: double
+      id:
+        description: Account identifier
+        type: string
+      label:
+        description: Account label
+        type: string
+      owner:
+        description: owner of the account
+        type: string
+      type:
+        description: Account type (e.g. savings)
+        type: string
+    required:
+      - IBAN
+      - balance
+      - id
+      - label
+      - owner
+      - type
+    additionalProperties: false
 swagger: '2.0'
 info:
   x-ibm-name: openbank

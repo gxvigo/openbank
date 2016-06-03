@@ -1,0 +1,2 @@
+catalog: 'apic-catalog://au.apiconnect.ibmcloud.com/orgs/giovanninzibmcom-dev/catalogs/sb'
+app: 'apic-app://au.apiconnect.ibmcloud.com/orgs/giovanninzibmcom-dev/apps/openbank'

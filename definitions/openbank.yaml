@@ -18,26 +18,6 @@ paths:
           schema:
             $ref: '#/definitions/bank'
       deprecated: false
-    put:
-      tags:
-        - bank
-      summary: >-
-        Update an existing model instance or insert a new one into the data
-        source.
-      operationId: bank.upsert
-      parameters:
-        - name: data
-          in: body
-          description: Model instance data
-          required: false
-          schema:
-            $ref: '#/definitions/bank'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/bank'
-      deprecated: false
     get:
       tags:
         - bank
@@ -57,163 +37,6 @@ paths:
             type: array
             items:
               $ref: '#/definitions/bank'
-      deprecated: false
-  '/banks/{id}/exists':
-    get:
-      tags:
-        - bank
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'bank.exists__get_banks_{id}_exists'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-  '/banks/{id}':
-    head:
-      tags:
-        - bank
-      summary: Check whether a model instance exists in the data source.
-      operationId: 'bank.exists__head_banks_{id}'
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-            properties:
-              exists:
-                type: boolean
-      deprecated: false
-    get:
-      tags:
-        - bank
-      summary: Find a model instance by id from the data source.
-      operationId: bank.findById
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-        - name: filter
-          in: query
-          description: Filter defining fields and include
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/bank'
-      deprecated: false
-    delete:
-      tags:
-        - bank
-      summary: Delete a model instance by id from the data source.
-      operationId: bank.deleteById
-      parameters:
-        - name: id
-          in: path
-          description: Model id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: object
-      deprecated: false
-    put:
-      tags:
-        - bank
-      summary: >-
-        Update attributes for a model instance and persist it into the data
-        source.
-      operationId: bank.prototype.updateAttributes
-      parameters:
-        - name: data
-          in: body
-          description: An object of model property name/value pairs
-          required: false
-          schema:
-            $ref: '#/definitions/bank'
-        - name: id
-          in: path
-          description: PersistedModel id
-          required: true
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/bank'
-      deprecated: false
-  /banks/findOne:
-    get:
-      tags:
-        - bank
-      summary: Find first instance of the model matched by filter from the data source.
-      operationId: bank.findOne
-      parameters:
-        - name: filter
-          in: query
-          description: 'Filter defining fields, where, include, order, offset, and limit'
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            $ref: '#/definitions/bank'
-      deprecated: false
-  /banks/update:
-    post:
-      tags:
-        - bank
-      summary: Update instances of the model matched by where from the data source.
-      operationId: bank.updateAll
-      parameters:
-        - name: where
-          in: query
-          description: Criteria to match model instances
-          required: false
-          type: string
-          format: JSON
-        - name: data
-          in: body
-          description: An object of model property name/value pairs
-          required: false
-          schema:
-            $ref: '#/definitions/bank'
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            description: The number of instances updated
-            type: object
       deprecated: false
   /banks/count:
     get:
@@ -238,41 +61,6 @@ paths:
                 type: number
                 format: double
       deprecated: false
-  /banks/change-stream:
-    post:
-      tags:
-        - bank
-      summary: Create a change stream.
-      operationId: bank.createChangeStream__post_banks_change-stream
-      parameters:
-        - name: options
-          in: formData
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: file
-      deprecated: false
-    get:
-      tags:
-        - bank
-      summary: Create a change stream.
-      operationId: bank.createChangeStream__get_banks_change-stream
-      parameters:
-        - name: options
-          in: query
-          required: false
-          type: string
-          format: JSON
-      responses:
-        '200':
-          description: Request was successful
-          schema:
-            type: file
-      deprecated: false
   /accounts:
     post:
       tags:
@@ -295,9 +83,7 @@ paths:
     put:
       tags:
         - account
-      summary: >-
-        Update an existing model instance or insert a new one into the data
-        source.
+      summary: Update an existing model instance or insert a new one into the data source.
       operationId: account.upsert
       parameters:
         - name: data
@@ -421,9 +207,7 @@ paths:
     put:
       tags:
         - account
-      summary: >-
-        Update attributes for a model instance and persist it into the data
-        source.
+      summary: Update attributes for a model instance and persist it into the data source.
       operationId: account.prototype.updateAttributes
       parameters:
         - name: data
@@ -569,9 +353,7 @@ paths:
     put:
       tags:
         - transaction
-      summary: >-
-        Update an existing model instance or insert a new one into the data
-        source.
+      summary: Update an existing model instance or insert a new one into the data source.
       operationId: transaction.upsert
       parameters:
         - name: data
@@ -695,9 +477,7 @@ paths:
     put:
       tags:
         - transaction
-      summary: >-
-        Update attributes for a model instance and persist it into the data
-        source.
+      summary: Update attributes for a model instance and persist it into the data source.
       operationId: transaction.prototype.updateAttributes
       parameters:
         - name: data
@@ -824,7 +604,7 @@ paths:
 definitions:
   bank:
     properties:
-      id:
+      bank_id:
         description: bank id
         type: string
       logo:
@@ -840,14 +620,12 @@ definitions:
         description: bank website URL
         type: string
     required:
-      - id
+      - bank_id
       - logo
       - long_name
       - short_name
       - website
     additionalProperties: false
-  x-any:
-    properties: {}
   account:
     properties:
       IBAN:
@@ -857,7 +635,7 @@ definitions:
         description: Account balance
         type: number
         format: double
-      id:
+      account_id:
         description: Account identifier
         type: string
       label:
@@ -872,14 +650,16 @@ definitions:
     required:
       - IBAN
       - balance
-      - id
+      - account_id
       - label
       - owner
       - type
     additionalProperties: false
+  x-any:
+    properties: {}
   transaction:
     properties:
-      id:
+      transaction_id:
         description: Unique transaction identifier
         type: string
       this_account_id:
@@ -911,7 +691,7 @@ definitions:
         description: Longitude where the transaction happened
         type: string
     required:
-      - id
+      - transaction_id
       - this_account_id
       - other_account_id
       - type

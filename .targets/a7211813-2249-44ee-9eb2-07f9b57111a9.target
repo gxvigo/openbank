@@ -1,0 +1,29 @@
+type: bluemix
+server:
+  displayName: Sydney
+  name: au-syd
+  host: au.apiconnect.ibmcloud.com
+org:
+  url: 'https://au.apiconnect.ibmcloud.com/v1/orgs/574bc11b0cf270d433104e3e'
+  id: 574bc11b0cf270d433104e3e
+  name: giovanninzibmcom-dev
+  status: active
+  orgType: apiProvider
+  displayName: giovanni@nz.ibm.com (dev)
+  externalOrgId: cdcd8022-4236-4478-a52e-fed4570038cd
+  externalInviteOverride: 'https://new-console.au-syd.bluemix.net/apis/catalog/invitation'
+  externalSpaceId: cdcd8022-4236-4478-a52e-fed4570038cd
+  externalNativeOrgId: f9b853ea-4ee3-48b8-a8db-dc8552ed1bd9
+  advPortalOverride: true
+  extUaaAuthenticated: false
+  requiresSSLClientCertCheck: false
+catalog:
+  id: 574bc11b0cf270d433104e45
+  shortName: sb
+  name: Sandbox
+  sandbox: true
+app:
+  new: true
+  name: openbank
+id: a7211813-2249-44ee-9eb2-07f9b57111a9
+target: 1.0.0

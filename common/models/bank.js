@@ -1,19 +1,19 @@
-// https://github.com/Neil-UWA/loopback-remote-routing
-// https://docs.strongloop.com/display/APIC/Exposing+models+over+REST
-var RemoteRouting = require('loopback-remote-routing');
+
 
 module.exports = function(Bank) {
-  // use only to expose specified remote methods
-  // symbol @ denotes static method
-  // scope methods are static method
-  RemoteRouting(Bank, {only: [
-      '@find',
-      '@create',
-      '@count'
-  ]});
-
-  //disable all remote methods omitting options
-
-  // RemoteRouting(Bank)
+ 
+  // hide default created methods
+  // https://docs.strongloop.com/display/APIC/Exposing+models+over+REST
+  var isStatic = true;
+  Bank.disableRemoteMethod('exists', isStatic);
+  Bank.disableRemoteMethod("upsert", isStatic);
+  Bank.disableRemoteMethod("updateAll", isStatic);
+  Bank.disableRemoteMethod("findById", isStatic);
+  Bank.disableRemoteMethod("findOne", isStatic);
+  Bank.disableRemoteMethod("findById", isStatic);
+  Bank.disableRemoteMethod("deleteById", isStatic);
+  Bank.disableRemoteMethod("prototype.updateAttributes", isStatic);
+  Bank.disableRemoteMethod("count", isStatic);
+  Bank.disableRemoteMethod("createChangeStream", isStatic);  
 
 };
